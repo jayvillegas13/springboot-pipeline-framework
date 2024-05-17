@@ -14,7 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo 'running build'
+    - run: spring-boot:build-image
     - run: echo 'running SCA'
     - run: echo 'running linting'
     - run: echo 'running format check'
