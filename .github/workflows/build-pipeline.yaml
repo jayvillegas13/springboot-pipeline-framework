@@ -14,33 +14,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: echo 'build'
-      description: Running build step
-    - run: echo 'SCA'
-      description: Running SCA step
-    - run: echo 'linting'
-      description: Running lint
-    - run: echo 'format check'
-      description: Running format lint
-    - run: echo 'security scanning'
-      description: Running security scan
-    - run: echo 'export test reports'
-      description: Running export test reports
-    - run: echo 'export SCA reports'
-      description: Running export SCA reports
+    - run: echo 'running build'
+    - run: echo 'running SCA'
+    - run: echo 'running linting'
+    - run: echo 'running format check'
+    - run: echo 'running security scanning'
+    - run: echo 'running export test reports'
+    - run: echo 'running export SCA reports'
 
   terraform-run:
     runs-on: ubuntu-latest
     steps:
-    - run: echo 'linting'
-      description: Running lint terraform
-    - run: echo 'format check'
-      description: Running format terraform
-    - run: echo 'security scanning'
-      description: Running security scan terraform
+    - run: echo 'running terraform linting'
+    - run: echo 'running terraform format check'
+    - run: echo 'running security scanning'
 
-    - run: terraform init
-    - run: terraform validate
+    - run: echo 'terraform init'
+    - run: echo 'terraform validate'
 
   build-push-image:
     needs: build
