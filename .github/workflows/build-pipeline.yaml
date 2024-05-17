@@ -15,29 +15,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'build'
-        description: Running build step
-      - run: echo 'SCA'
-        description: Running SCA step
+          description: Running build step
+      -   run: echo 'SCA'
+          description: Running SCA step
       - run: echo 'linting'
-        description: Running lint
+          description: Running lint
       - run: echo 'format check'
-        description: Running format lint
+          description: Running format lint
       - run: echo 'security scanning'
-        description: Running security scan
+          description: Running security scan
       - run: echo 'export test reports'
-        description: Running export test reports
+          description: Running export test reports
       - run: echo 'export SCA reports'
-        description: Running export SCA reports
+          description: Running export SCA reports
 
   terraform-run:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'linting'
-        description: Running lint terraform
+          description: Running lint terraform
       - run: echo 'format check'
-        description: Running format terraform
+          description: Running format terraform
       - run: echo 'security scanning'
-        description: Running security scan terraform
+          description: Running security scan terraform
 
       - run: terraform init
       - run: terraform validate
