@@ -15,8 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Check directory
-      run: ls
+    - name: Retrieve Spring CLI
+      run: curl -s "https://get.sdkman.io" | bash
+    - name: Install Spring CLI
+      run: source "$HOME/.sdkman/bin/sdkman-init.sh"
+    - name: Check Spring CLI
+      run: sdk version
     - name: mvn build
       run: |
         spring init
