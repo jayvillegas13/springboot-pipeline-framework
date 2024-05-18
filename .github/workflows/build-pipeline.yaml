@@ -18,10 +18,7 @@ jobs:
     - name: Check directory
       run: ls
     - name: mvn build
-      run: |
-        mvn compile
-        mvn clean build
-        ./mvnw run
+      run: ./mvnw build
     - name: Running SCA
       run: echo 'SCA
     - name: Running linting
