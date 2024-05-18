@@ -16,7 +16,9 @@ jobs:
     steps:
     - name: mvn build
       working-directory: ./
-      run: mvn build
+      run: |
+      ls
+      mvn build
     - name: Running SCA
       run: echo 'SCA
     - name: Running linting
