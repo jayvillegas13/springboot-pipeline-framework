@@ -18,7 +18,7 @@ jobs:
     - name: Retrieve Spring CLI
       run: curl -s "https://get.sdkman.io" | bash
     - name: Install Spring CLI
-      run: source ".sdkman/bin/sdkman-init.sh"
+      run: source "$HOME/.sdkman/bin/sdkman-init.sh"
     - name: Check Spring CLI
       run: spring --version
     - name: mvn build
