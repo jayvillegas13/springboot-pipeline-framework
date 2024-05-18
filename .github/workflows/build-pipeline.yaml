@@ -21,7 +21,7 @@ jobs:
       run: |
         mvn validate
         mvn initialize
-        clean install springboot:build
+        install springboot:build
     - name: Running SCA
       run: echo 'SCA
     - name: Running linting
