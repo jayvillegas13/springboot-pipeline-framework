@@ -20,7 +20,7 @@ jobs:
     - name: Install Spring CLI
       run: source "$HOME/.sdkman/bin/sdkman-init.sh"
     - name: Check Spring CLI
-      run: sdk version
+      run: spring version
     - name: mvn build
       run: |
         spring init
