@@ -15,12 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Check directory
-      run: ls
-    - name: mvn build
-      run: mvn spring-boot:run
+    - name: Running Unit Test
+      run: echo 'unit testing'
     - name: Running SCA
-      run: echo 'SCA
+      run: |
+      mvn clean
+      mvn compile
+      mvn install
+      mvn spring-boot:run
     - name: Running linting
       run: echo 'linting'
     - name: Running format check
