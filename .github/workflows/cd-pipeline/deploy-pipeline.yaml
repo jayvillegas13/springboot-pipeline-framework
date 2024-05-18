@@ -1,0 +1,15 @@
+name: Deployment Pipeline
+run-name: Jay's deployment Pipeline 
+on:
+  workflow_dispatch:
+    inputs:
+      build-push-image:
+        type: boolean
+        description: Deploy image
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo 'Deploying DEV'
+      description: Deploying DEV

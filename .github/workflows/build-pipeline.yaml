@@ -1,0 +1,49 @@
+name: Build Pipeline
+run-name: Jay's Build Pipeline 
+on:
+  workflow_dispatch:
+    inputs:
+      build-push-image:
+        type: boolean
+        description: Build and Push the Image
+  push:
+    branches:    
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check directory
+      working-directory: ./
+      run: ls
+    - name: mvn build
+      run: mvn build
+    - name: Running SCA
+      run: echo 'SCA
+    - name: Running linting
+      run: echo 'linting'
+    - name: Running format check
+      run: echo 'format check'
+    - name: Security Scanning
+      run: echo 'security scanning'
+    - name: Export Test Reports
+      run: echo 'export test reports'
+    - name: Export SCA reports
+      run: echo 'export SCA reports'
+
+  terraform-run:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 'running terraform linting'
+    - run: echo 'running terraform format check'
+    - run: echo 'running security scanning'
+
+    - run: echo 'terraform init'
+    - run: echo 'terraform validate'
+
+  build-push-image:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo 'build push image'
