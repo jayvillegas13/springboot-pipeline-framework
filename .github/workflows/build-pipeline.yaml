@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: mvn build
-      run: mvn build
       working-directory: ./
+      run: mvn build
     - name: Running SCA
       run: echo 'SCA
     - name: Running linting
