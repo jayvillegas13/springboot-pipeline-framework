@@ -18,9 +18,7 @@ jobs:
     - name: Check directory
       run: ls
     - name: mvn build
-      run: |
-        mvn clean package
-        mvn compile
+      run: mvn spring-boot:build
     - name: Running SCA
       run: echo 'SCA
     - name: Running linting
