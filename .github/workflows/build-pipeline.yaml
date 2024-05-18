@@ -15,8 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Check directory
+      run: ls
     - name: mvn build
-      run: mvnw run
+      run: |
+        mvn compile
+        mvn clean build
+        mvn clean install springboot:run
     - name: Running SCA
       run: echo 'SCA
     - name: Running linting
