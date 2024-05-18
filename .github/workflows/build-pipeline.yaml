@@ -19,9 +19,8 @@ jobs:
       run: ls
     - name: mvn build
       run: |
-        mvn validate
-        mvn initialize
-        install --help
+        mvn compile
+        mvn clean build
     - name: Running SCA
       run: echo 'SCA
     - name: Running linting
