@@ -19,8 +19,7 @@ jobs:
       run: ls
     - name: mvn build
       run: |
-        mvn compile
-        mvn clean build
+        spring init
     - name: Running SCA
       run: echo 'SCA
     - name: Running linting
