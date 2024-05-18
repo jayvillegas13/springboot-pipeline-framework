@@ -14,13 +14,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - run: mvn build
-    - run: echo 'running SCA'
-    - run: echo 'running linting'
-    - run: echo 'running format check'
-    - run: echo 'running security scanning'
-    - run: echo 'running export test reports'
-    - run: echo 'running export SCA reports'
+    - name: mvn build
+      run: |
+      cd ..
+      mvn build
+    - name: Running SCA
+      run: echo 'SCA
+    - name: Running linting
+      run: echo 'linting'
+    - name: Running format check
+      run: echo 'format check'
+    - name: Security Scanning
+      run: echo 'security scanning'
+    - name: Export Test Reports
+      run: echo 'export test reports'
+    - name: Export SCA reports
+      run: echo 'export SCA reports'
 
   terraform-run:
     runs-on: ubuntu-latest
