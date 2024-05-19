@@ -15,10 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Install JDK 21
+      run: sudo apt install openjdk-21-jdk
+    - name: Check Java version
+      run: java --version 
     - name: Running Unit Test
-      run: |
-        sudo apt install openjdk-21-jdk
-        java --version
+      run: echo 'unit testing'
+    - name: Check Maven version
+      run: mvn -v
     - name: Running SCA
       run: |
         mvn compile
