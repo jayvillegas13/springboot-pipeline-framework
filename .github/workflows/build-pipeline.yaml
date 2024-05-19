@@ -22,9 +22,7 @@ jobs:
     - name: Check Maven version
       run: mvn -v
     - name: Running SCA
-      run: |
-        mvn clean
-        mvn compile
+      run: mvn compile
     - name: Running mvn install
       run: mvn clean install
     - name: Running mvn package
