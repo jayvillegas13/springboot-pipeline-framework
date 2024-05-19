@@ -14,7 +14,7 @@
 	<name>springboot-pipeline-framework</name>
 	<description>Pipeline framework for Springboot/Maven</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
