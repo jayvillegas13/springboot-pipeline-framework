@@ -19,8 +19,8 @@ jobs:
       run: echo 'unit testing'
     - name: Running SCA
       run: |
-      mvn compile
-      mvn install
+      ./mvnw compile
+      ./mvnw install
       mvn spring-boot:run
     - name: Running linting
       run: echo 'linting'
