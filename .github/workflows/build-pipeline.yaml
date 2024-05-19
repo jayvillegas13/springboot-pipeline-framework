@@ -23,9 +23,10 @@ jobs:
       run: mvn -v
     - name: Running SCA
       run: |
+        mvn clean
         mvn compile
-        mvn install
-        mvn spring-boot:run
+        mvn clean install
+        mvn package
     - name: Running linting
       run: echo 'linting'
     - name: Running format check
