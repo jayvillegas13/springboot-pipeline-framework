@@ -25,9 +25,11 @@ jobs:
     - name: Running Unit Test
       run: echo 'unit testing'
     - name: Running SCA
-      run: |
-        mvn clean install
-        mvn package
+      run: echo 'sca'
+    - name: mvn clean install
+      run: mvn clean install
+    - name: mvn package
+      run: mvn package
     - name: Running linting
       run: echo 'linting'
     - name: Running format check
