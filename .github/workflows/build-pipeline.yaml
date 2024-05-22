@@ -57,4 +57,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Running docker build
-      run: docker build -t springboot-pipeline-framework .
+      run: docker build - < Dockerfile
