@@ -60,3 +60,10 @@ jobs:
       uses: docker/setup-buildx-action@v1
     - name: Running docker build
       run: docker build -t springboot-pipeline-framework .
+    - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: app/
+          file: ./Dockerfile
+          push: true
+          tags: springboot-pipeline-framework:latest
