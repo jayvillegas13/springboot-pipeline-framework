@@ -55,6 +55,10 @@ jobs:
   build-push-image: 
     needs: build
     runs-on: ubuntu-latest
+    uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
     steps:
     - name: Running docker build
       run: docker build -t springboot-pipeline-framework .
