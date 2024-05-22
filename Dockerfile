@@ -11,7 +11,6 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21.0.3_9-jre
 # Set the working directory in the container
 WORKDIR /app
-COPY Dockerfile /var/lib/docker/tmp/*/
 # Copy the built JAR file from the previous stage to the container
 COPY - from=build /app/target/springboot-pipeline-framework-0.0.1-SNAPSHOT.jar .
 # Set the command to run the application
