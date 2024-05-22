@@ -51,8 +51,10 @@ jobs:
     - run: echo 'terraform init'
     - run: echo 'terraform validate'
 
-  build-push-image:
+  # Create image and push to container registry
+  build-push-image: 
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - run: echo 'build push image'
+    - name: Running docker build
+      run: docker build
