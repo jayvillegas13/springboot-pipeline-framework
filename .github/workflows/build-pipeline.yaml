@@ -76,11 +76,3 @@ jobs:
         file: ./Dockerfile
         push: false
         tags: springboot-pipeline-framework:latest
-
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: docker-image-artifact
-        path: |
-          /app
-          !target/springboot-pipeline-framework-0.0.1-SNAPSHOT.jar
