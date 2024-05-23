@@ -82,6 +82,4 @@ jobs:
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/springboot-pipeline-framework
-        secret: |
-          GIT_AUTH_TOKEN=${{ secrets.github_token }}
+        tags: ghcr.io/springboot-pipeline-framework:latest
