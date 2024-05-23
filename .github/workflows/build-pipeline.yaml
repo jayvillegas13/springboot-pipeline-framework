@@ -82,4 +82,4 @@ jobs:
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/springboot-pipeline-framework
+        tags: ghcr.io/springboot-pipeline-framework:latest
