@@ -83,6 +83,7 @@ jobs:
     - name: Retrieve and set SHA 
       id: sha-short
       run: |
+        pwd
         cd ../springboot-pipeline-framework
         ls -la
         echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
