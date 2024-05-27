@@ -87,6 +87,6 @@ jobs:
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository }}:${{ steps.vars.outputs.sha_short }}
+        tags: ghcr.io/${{ steps.vars.outputs.sha_short }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
