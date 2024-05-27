@@ -11,6 +11,9 @@ on:
           default: false
           description: Select tag
           type: choice
+          option:
+          - idk
+          - help
   push:
     branches:    
       - '**'
