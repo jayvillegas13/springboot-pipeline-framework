@@ -115,8 +115,6 @@ jobs:
 
     - name: Setup buildx
       uses: docker/setup-buildx-action@v1
-
-    
     
     - name: Retrieve and set SHA 
       id: vars
@@ -129,11 +127,15 @@ jobs:
       id: image-name
       run: echo "image_name=${{ github.repository }}" >> $GITHUB_OUTPUT
 
+    - name: Image Version
+      id: version
+      uses: paulhatch/semantic-version@v5.3.0
+
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ steps.image-name.outputs.image_name }}-${{steps.version.outputs.version}}-snapshot:${{ steps.vars.outputs.short_sha }}
+        tags: ghcr.io/${{ steps.image-name.outputs.image_name }}-${{steps.version.outputs.version}}:${{ steps.vars.outputs.short_sha }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
