@@ -16,22 +16,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
+    - uses: actions/checkout@v4
+    
     - name: Retrieve Commits
       id: commits
       run: |
         COMMIT_OPTIONS=$(git log --pretty=format:"%h - %an, %ar : %s" | awk '{print substr($1,1,7)}' | head -n 10)  # Get the first 10 commit hashes
         echo "::set-output name=commit_options::$COMMIT_OPTIONS"
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
 
     - name: Git checkout
       uses: actions/checkout@v2
