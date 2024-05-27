@@ -15,21 +15,7 @@ on:
   push:
     branches:    
       - '**'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Retrieve Commits
-      id: commits
-      run: |
-        COMMIT_OPTIONS=$(git log --pretty=format:"%h - %an, %ar : %s" | awk '{print $1}' | head -n 10)  # Get the first 10 commit hashes
-        echo "::set-output name=commit_options::$COMMIT_OPTIONS"
-
+      
 jobs:
   build:
     runs-on: ubuntu-latest
