@@ -82,11 +82,7 @@ jobs:
     
     - name: Retrieve and set SHA 
       id: sha-short
-      run: |
-        pwd
-        cd ../springboot-pipeline-framework
-        ls -la
-        echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      run: echo "sha_short=$(git rev-parse --short ${{ github.event.pull_request.head.sha }})" >> $GITHUB_OUTPUT
 
     - name: Retrieve Image Name
       id: image-name
