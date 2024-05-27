@@ -84,6 +84,7 @@ jobs:
       id: sha-short
       run: |
         cd ..
+        ls -la
         echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
     - name: Retrieve Image Name
@@ -95,6 +96,6 @@ jobs:
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/"${{ steps.image-name.outputs.image_name }}":"${{ steps.sha-short.outputs.sha_short }}"
+        tags: ghcr.io/${{ steps.image-name.outputs.image_name }}:${{ steps.sha-short.outputs.sha_short }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
