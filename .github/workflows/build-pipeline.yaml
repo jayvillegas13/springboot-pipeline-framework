@@ -82,11 +82,15 @@ jobs:
       id: vars
       run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
+    - name: Retrieve Image Name
+      id: image-name
+      run: echo "image_name=${{ github.repository }}" >> $GITHUB_OUTPUT
+
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ steps.vars.outputs.sha_short }}
+        tags: ghcr.io/${{ steps.image-name.outputs.image_name }}:${{ steps.vars.outputs.sha_short }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
