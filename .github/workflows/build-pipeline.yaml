@@ -4,20 +4,28 @@ on:
   workflow_dispatch:
     inputs:
       build-push-image:
-        tag: 
+        commit-tag: 
           required: false
-          default: false
-          description: Select tag
-          type: choice
-          options:
-
+          description: Select commit
         type: boolean
         description: Build and Push the Image
-        
-        
   push:
     branches:    
       - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Retrieve Commits
+      id: commits
+      run: |
+        COMMIT_OPTIONS=$(git log --pretty=format:"%h - %an, %ar : %s" | awk '{print substr($1,1,7)}' | head -n 10)  # Get the first 10 commit hashes
+        echo "::set-output name=commit_options::$COMMIT_OPTIONS"
 
 jobs:
   build:
