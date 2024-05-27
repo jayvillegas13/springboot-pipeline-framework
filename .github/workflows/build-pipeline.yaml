@@ -82,7 +82,7 @@ jobs:
     
     - name: Retrieve and set SHA 
       id: sha-short
-      run: echo "git rev-parse --short HEAD"
+      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
     - name: Retrieve Image Name
       id: image-name
