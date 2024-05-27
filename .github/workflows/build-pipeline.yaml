@@ -81,9 +81,9 @@ jobs:
     
     
     - name: Retrieve and set SHA 
-      working-directory: ../springboot-pipeline-framework
       id: sha-short
       run: |
+        cd ../springboot-pipeline-framework
         ls -la
         echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
