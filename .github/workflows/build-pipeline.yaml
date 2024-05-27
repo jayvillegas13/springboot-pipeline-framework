@@ -93,6 +93,6 @@ jobs:
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ steps.image-name.outputs.image_name }}:${{ steps.sha-short.outputs.sha_short }}
+        tags: ghcr.io/${{ steps.image-name.outputs.image_name }}-0.0.1-SNAPSHOT:${{ steps.sha-short.outputs.sha_short }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
