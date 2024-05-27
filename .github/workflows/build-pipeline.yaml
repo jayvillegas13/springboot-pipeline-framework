@@ -6,6 +6,10 @@ on:
       build-push-image:
         type: boolean
         description: Build and Push the Image
+        version:
+          description: "The version to release. The version should be the same as version in package.json. For example, 1.0.0"
+          required: true
+        
   push:
     branches:    
       - '**'
