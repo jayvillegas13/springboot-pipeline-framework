@@ -118,6 +118,6 @@ jobs:
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ github.repository }}:${{ steps.vars.outputs.sha_short }}-${{steps.version.outputs.version}}-SNAPSHOT
+        tags: ghcr.io/${{ github.repository }}:${{ steps.vars.outputs.sha_short }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
