@@ -4,18 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       build-push-image:
-        tag: 
+        type: boolean
+        description: Build and Push the Image
+      select-tag: 
           required: false
           default: false
           description: Select tag
           type: choice
-          options:
-        type: boolean
-        description: Build and Push the Image
   push:
     branches:    
       - '**'
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
