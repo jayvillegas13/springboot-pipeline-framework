@@ -68,6 +68,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+    - name: Install git
+      run: |
+        RUN apt-get -y update
+        RUN apt-get -y install git
     - name: Login to GitHub Container Registry
       uses: docker/login-action@v3
       with:
@@ -80,14 +84,15 @@ jobs:
 
     
     
-    # - name: Retrieve and set SHA 
-    #   id: vars
-    #   run: |
-    #     calculatedSha=$(git rev-parse --short ${{ github.sha }})
-    #     echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
+    - name: Retrieve and set SHA 
+      id: vars
+      run: |
+        git init
+        calculatedSha=$(git rev-parse --short ${{ github.sha }})
+        echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
     
-    # - name: Confirm git commit SHA output
-    #   run: echo ${{ env.COMMIT_SHORT_SHA }}
+    - name: Confirm git commit SHA output
+      run: echo ${{ env.COMMIT_SHORT_SHA }}
 
     - name: Retrieve Image Name
       id: image-name
