@@ -94,6 +94,7 @@ jobs:
     - name: Retrieve and set SHA 
       id: vars
       run: |
+        git status
         calculatedSha=$(git rev-parse --short ${{ github.sha }})
         echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
     
