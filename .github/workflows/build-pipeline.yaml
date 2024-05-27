@@ -81,7 +81,7 @@ jobs:
     
     
     - name: Retrieve and set SHA 
-      id: sha-short
+      id: vars
       run: |
         calculatedSha=$(git rev-parse --short ${{ github.sha }})
         echo "COMMIT_SHORT_SHA=$calculatedSha" >> $GITHUB_ENV
@@ -98,6 +98,6 @@ jobs:
       with:
         file: ./Dockerfile
         push: true
-        tags: ghcr.io/${{ steps.image-name.outputs.image_name }}-0.0.1-SNAPSHOT:${{ steps.sha-short.outputs.COMMIT_SHORT_SHA }}
+        tags: ghcr.io/${{ steps.image-name.outputs.image_name }}-0.0.1-SNAPSHOT:${{ steps.vars.outputs.COMMIT_SHORT_SHA }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
